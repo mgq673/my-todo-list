@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.inline-block{
+  display: inline-block;
+}
+
+body{
+
+    background-image: url('./assets/889.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    /* filter: grayscale(100%); */
+
+}

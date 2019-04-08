@@ -1,0 +1,29 @@
+.example-full-width{
+  width:100%;
+}
+
+
+.example-form {
+  min-width: 350px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.card-button{
+  float: right;
+}
+
+.item-card:not last-of-type
+{
+  margin-bottom: 5px;
+  min-width: 180px;
+}
+
+.done-cb{
+  width: calc( 100% - 80px );
+  display: inline-block;
+}
+.task-completed{
+  text-decoration: line-through;
+  color:grey;
+}

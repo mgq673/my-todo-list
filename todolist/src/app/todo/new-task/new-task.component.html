@@ -1,0 +1,9 @@
+
+
+<button mat-icon-button class="card-button" (click)="toggleAdd()" *ngIf="!addNewFlag">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <app-editable [model]="task" (doneEdit)="addTask($event)"  *ngIf="addNewFlag"></app-editable>
+
+

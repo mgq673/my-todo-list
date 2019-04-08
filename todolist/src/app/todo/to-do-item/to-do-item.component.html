@@ -1,0 +1,19 @@
+<mat-card class="item-card">
+  <mat-card-content>
+    <section>
+      <mat-checkbox *ngIf="!editable" class="done-cb" [checked]="isTaskCompleted(task)" [disabled]="isTaskCompleted(task)" (change)="markAsDone($event)">
+        <span class="task-title" [ngClass]="{'task-completed' :isTaskCompleted(task)}">{{ task.title }}</span>
+      </mat-checkbox>
+
+      <app-editable [model]="task" (doneEdit)="doneEditing($event)" *ngIf="editable"></app-editable>
+
+      <button mat-icon-button class="card-button" (click)="delete()" *ngIf="!editable">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      <button mat-icon-button class="card-button" (click)="edit()"  *ngIf="!editable">
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+    </section>
+  </mat-card-content>
+</mat-card>

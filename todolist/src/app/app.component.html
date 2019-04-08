@@ -1,0 +1,30 @@
+
+<!-- <router-outlet></router-outlet> --> 
+
+<div >
+
+<div class="container background-title"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+
+fxLayoutGap.xs="0">
+
+<div fxFlex><app-login></app-login></div>
+
+</div>
+
+<div class="container background" 
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="40px"
+fxLayoutGap.xs="0" >
+<div fxFlex="40%" >
+  <app-to-do-list></app-to-do-list>
+</div>
+<div  fxFlex>
+  <app-to-do-tasks></app-to-do-tasks>
+</div>
+</div>
+</div>

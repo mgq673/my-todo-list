@@ -1,0 +1,26 @@
+<div  *ngIf="list">
+
+  <div class="menu">
+
+  {{list.title}}
+  <mat-chip-list class="inline-block">
+      <mat-chip color="accent" selected  matTooltip="Non completed!" matTooltipPosition="right">{{len}}</mat-chip>
+  </mat-chip-list>
+</div>
+<app-new-task></app-new-task>
+<mat-checkbox [checked]="onlyNonCompleted" (change)="onlyNonCompleted=!onlyNonCompleted">
+   Non conmpleted only
+  </mat-checkbox>
+<span class="task-completed">
+  <a mat-button routerLink="." (click)="removeCompleted()">remove completed</a>
+</span>
+<mat-divider></mat-divider>
+
+<ul >
+    <li *ngFor="let task of tasks| nonCompleted: onlyNonCompleted  ">
+
+      <app-to-do-item [task]="task"></app-to-do-item>
+    </li>
+</ul>
+
+</div>

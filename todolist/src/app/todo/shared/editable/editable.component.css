@@ -1,0 +1,5 @@
+.title-edit{
+  width: calc(100% - 40px);
+  min-width:180px;
+}
+

@@ -1,0 +1,23 @@
+<div class="lists"  *ngIf="lists">
+
+<h4 class="mat-h4">
+   My ToDo lists:
+   <button mat-icon-button class="card-button" (click)="toggleAdd()" *ngIf="!addNewFlag">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <app-editable [model]="newList" (doneEdit)="addList($event)"  *ngIf="addNewFlag"></app-editable>
+
+</h4>
+<mat-toolbar>
+  <mat-toolbar-row *ngFor="let list of lists"  (click)="onSelectList(list)" >
+
+      <span class="inline-block list-title">{{list.title}}</span>
+      <mat-chip-list class="inline-block ">
+          <mat-chip color="primary" selected matTooltip="All!" matTooltipPosition="right">{{list.counter }}</mat-chip>
+      </mat-chip-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+</div>
+

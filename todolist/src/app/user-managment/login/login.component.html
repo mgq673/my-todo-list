@@ -1,0 +1,19 @@
+ <div class="user-title">
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Your name" [(ngModel)]="username" name="username"/>
+    </mat-form-field>
+    <button mat-raised-button (click)="login()" >Login</button>
+
+  </form>
+  <input matInput placeholder="Your name" [(ngModel)]="newuser" />
+  <a mat-button routerLink="." (click)="signup()">Signup</a>
+
+<div *ngIf="user">
+  <p>Welcome back {{user.name}}</p>
+
+</div>
+
+</div>
+
+

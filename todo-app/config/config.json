@@ -1,0 +1,10 @@
+{
+    "app":{
+        "version":"1.0",
+        "APP_PORT":"4000"
+    },
+    "database":{
+        "url": "mongodb://irenatodo:123abc@ds233596.mlab.com:33596/todo"
+    }
+    
+}
