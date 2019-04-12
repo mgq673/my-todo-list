@@ -38,24 +38,21 @@ function createLoadTasksState(state: AppState, action: AllTodoListActions) {
 
   const userList = user.Lists.filter(l => l.id === list.id)[0];
   const newList = { ...list, tasks: action.payload.tasks, counter: action.payload.tasks.length };
-  let li = user.Lists.indexOf(userList);
+  const li = user.Lists.indexOf(userList);
   const newUser = { ...user };
   newUser.Lists[li] = newList;
-  const counters = newUser.Lists.map(l => l.counter)
+  const counters = newUser.Lists.map(l => l.counter);
   const sum = counters.reduce((sum, el) => sum += el);
-  console.log("sum:" + sum);
   const newState = { ...state, list: newList, newUser, counter: sum }
 
   return newState;
 }
 
 export const getTodoList = (state) => state.user;
-// export const getUserId = (state) => state.user._id;
 export const getUserData = (state) => state.user;
 
-const getCustomerFeatureState = createFeatureSelector<AppState>(
-  "user"
-);
+const getCustomerFeatureState = createFeatureSelector<AppState>('user');
+
 export const getUserId = createSelector(
   getCustomerFeatureState,
   (state: AppState) => (state.user) ? state.user.id : null

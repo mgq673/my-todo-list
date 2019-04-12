@@ -7,42 +7,17 @@ import { Error } from './error';
 })
 export class ErrorHandlerService {
 
-  constructor() {
+  constructor() { }
 
-  }
-
-  private error= new Error();
+  private error = new Error();
   private subject = new Subject<any>();
 
-  showErrorMessage(err: any){
-    console.log('FAILED OPERATION:'+ JSON.stringify(err.result));
-    this.error.message = err.result;
-    this.subject.next( this.error );
-    // this.subject.next({ text: msg });
-  }
-
-  // getError(): Observable<Error> {
-  //    return new Observable(observer => observer.next(this.error));
-  // }
-
-
-
-
-
-
-
-
-  sendMessage(message: string) {
-      this.subject.next({ text: message });
-  }
-
-  clearMessages() {
-      this.subject.next();
+  showErrorMessage(err: any) {
+    this.error.message = `Error: ${err.result}`;
+    this.subject.next(this.error);
   }
 
   getMessage(): Observable<any> {
-      return this.subject.asObservable();
+    return this.subject.asObservable();
   }
-
-
 }

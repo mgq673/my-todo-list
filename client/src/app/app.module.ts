@@ -16,7 +16,7 @@ import { TodoEffects } from './store/to-do.effects';
 import { NewTaskComponent } from './todo/new-task/new-task.component';
 import { NonCompletedPipe } from './shared/pipes';
 import { ToDoTasksComponent } from './todo/to-do-tasks/to-do-tasks.component';
-import { EditableComponent } from './todo/shared/editable/editable.component';
+import { EditableComponent } from './todo/editable/editable.component';
 import { httpInterceptorProviders } from './shared/interceptors/index';
 import { ErrorComponent } from './error-handler/error/error.component';
 

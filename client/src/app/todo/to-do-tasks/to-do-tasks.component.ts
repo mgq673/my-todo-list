@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import { Task } from '../models/task';
 import { TaskStatus } from '../../shared/task-status.enum';
@@ -22,22 +22,23 @@ export class ToDoTasksComponent implements OnInit {
   constructor(private store: Store<AppState>) {
 
     store.select(fromReducer.getTodoList)
-    .subscribe((d) => {
-      if (d.list) {
-        this.tasks = d.list.tasks;
-        this.list = d.list;
-        if ( this.tasks) {
-          this.len = ( this.tasks.filter(t => t.status === TaskStatus.NORMAL)).length;
+      .subscribe((d) => {
+        if (d.list) {
+          this.tasks = d.list.tasks;
+          this.list = d.list;
+          if (this.tasks) {
+            //TODO: find a way to use pipe
+            this.len = (this.tasks.filter(t => t.status === TaskStatus.NORMAL)).length;
+
+          }
         }
-    }
-    });
+      });
   }
 
   ngOnInit() {
   }
 
   removeCompleted(): void {
-    const taskToRemove = this.tasks.filter(t => t.status === TaskStatus.DONE).map(t => t.id);
-    this.store.dispatch(new TodoActions.RemovAllDoneTask({list: this.list, Ids: taskToRemove}));
+    this.store.dispatch(new TodoActions.RemovAllDoneTask({ list: this.list }));
   }
 }

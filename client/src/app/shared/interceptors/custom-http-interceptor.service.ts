@@ -5,7 +5,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { ErrorHandlerService } from 'src/app/error-handler/error-handler.service';
-import { errorHandler } from '@angular/platform-browser/src/browser';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,6 @@ export class CustomHttpInterceptorService implements HttpInterceptor {
   constructor(public errHandlerService: ErrorHandlerService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('CustomHttpInterceptorService--->>>');
     if (!request.headers.has('Content-Type')) {
       request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
     }
@@ -26,9 +25,7 @@ export class CustomHttpInterceptorService implements HttpInterceptor {
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          console.log('event--->>>', event);
           if (event.body.status === 'fail') {
-
             this.errHandlerService.showErrorMessage(event.body);
             throwError(event);
           }

@@ -4,7 +4,6 @@ import * as TodoActions from '../../store/to-do.actions';
 import * as fromReducer from '../../store/to-do.reducer';
 import { AppState } from '../../app.state';
 import { List } from '../models/List';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/user-managment/models/user';
 
 @Component({
@@ -17,7 +16,7 @@ export class ToDoListComponent implements OnInit {
   addNewFlag = false;
   newList: List;
   user: User;
-  counter:number;
+  counter: number;
 
   constructor( private store: Store<AppState>) {
     store.select(fromReducer.getTodoList)
@@ -25,7 +24,7 @@ export class ToDoListComponent implements OnInit {
       if( data.user) {
         this.lists = data.user.Lists;
         this.user = data.user;
-        this.counter = data.counter
+        this.counter = data.counter;
       }
     });
    }
@@ -37,7 +36,6 @@ export class ToDoListComponent implements OnInit {
   }
 
   addList(list: List): void {
-    console.log('addList');
     this.store.dispatch(new TodoActions.AddNewList({ userId: this.user.id, title: list.title }));
     this.addNewFlag = false;
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from '../models/task';
-import { select, Store } from '@ngrx/store';
+import {  Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import * as TodoActions from '../../store/to-do.actions';
 import * as fromReducer from '../../store/to-do.reducer';

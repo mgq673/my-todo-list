@@ -1,6 +1,4 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../../models/task';
-import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 
 
 @Component({

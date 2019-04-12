@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log('Login pressed');
     this.store.dispatch(new TodoActions.UserLogin({name: this.username}));
     }
 
