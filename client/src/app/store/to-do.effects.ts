@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
 import * as TodoAction from './to-do.actions';
-import { UserService } from '../user-managment/shared/user.service';
-import { TaskService } from '../todo/shared/task.service';
+import { UserService } from '../shared/user.service';
+import { TaskService } from '../shared/task.service';
 
 @Injectable()
 export class TodoEffects {

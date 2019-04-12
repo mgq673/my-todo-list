@@ -6,7 +6,7 @@ import * as TodoActions from '../../store/to-do.actions';
 import * as fromReducer from '../../store/to-do.reducer';
 import { Observable } from 'rxjs';
 import { List } from '../models/List';
-import { TaskStatus } from '../shared/task-status.enum';
+import { TaskStatus } from '../../shared/task-status.enum';
 
 @Component({
   selector: 'app-to-do-item',

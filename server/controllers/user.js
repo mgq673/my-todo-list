@@ -8,7 +8,10 @@ class User {
   }
 
   static async login(userName) {
-    return await UserModel.findOne({name: userName}).populate("lists");
+    const user =  await UserModel.findOne({name: userName}).populate("lists");
+
+    if(!user) throw('User not authorize or doesn\'t exists');
+    return user;
   }
 
   static async addList(userId, _list) {

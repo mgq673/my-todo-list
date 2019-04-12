@@ -5,10 +5,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { environment } from '../../../environments/environment';
-import { User } from '../models/user';
-import { List } from '../../todo/models/List';
-import { CustomHttpOptions } from 'src/app/core/shared/HttpsHeaders';
+import { environment } from '../../environments/environment';
+import { CustomHttpOptions } from 'src/app/shared/HttpsHeaders';
+import { User } from '../user-managment/models/user';
+import { List } from '../todo/models/List';
 
 
 @Injectable({

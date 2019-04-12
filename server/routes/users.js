@@ -17,7 +17,7 @@ router.post("/login", (req, res, next) => {
     res.send({ status: "ok", result: result });
   }).catch((result)=>  {
     res.statusCode = 401;
-    res.send({ status: "failed", result: result });
+    res.send({ status: "fail", result: result });
   })
 });
 

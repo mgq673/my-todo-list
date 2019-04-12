@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import { Task } from '../models/task';
-import { TaskStatus } from '../shared/task-status.enum';
+import { TaskStatus } from '../../shared/task-status.enum';
 import * as fromReducer from '../../store/to-do.reducer';
 import * as TodoActions from '../../store/to-do.actions';
 import { List } from '../models/List';
