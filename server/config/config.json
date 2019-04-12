@@ -1,0 +1,10 @@
+{
+    "app":{
+        "version":"1.0",
+        "APP_PORT":"4000"
+    },
+    "database":{
+        "url": "mongodb://localhost:27017/newSchema"
+    }
+    
+}
