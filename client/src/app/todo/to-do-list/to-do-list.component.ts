@@ -17,6 +17,7 @@ export class ToDoListComponent implements OnInit {
   addNewFlag = false;
   newList: List;
   user: User;
+  counter:number;
 
   constructor( private store: Store<AppState>) {
     store.select(fromReducer.getTodoList)
@@ -24,6 +25,7 @@ export class ToDoListComponent implements OnInit {
       if( data.user) {
         this.lists = data.user.Lists;
         this.user = data.user;
+        this.counter = data.counter
       }
     });
    }

@@ -16,7 +16,8 @@ class User {
     const user = await UserModel.findById(userId);
     user.lists.push(list);
     await user.save();
-    return list.save();
+    await list.save();
+    return await UserModel.findById(userId).populate('lists');
   }
 }
 

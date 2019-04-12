@@ -34,7 +34,9 @@ export class TodoEffects {
   @Effect() userLoginSuccess$ = this.actions$
     .pipe(
       ofType(TodoAction.ActionTypes.USER_LOGIN_SUCCESS),
+      // map((data: TodoAction.UserLoginSuccess) => new TodoAction.SetCurrentList(data.payload))
       map((data: TodoAction.UserLoginSuccess) => new TodoAction.SetCurrentList(data.payload.Lists[0]))
+
     );
 
 

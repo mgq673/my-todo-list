@@ -32,7 +32,7 @@ router.post("/signup", (req, res, next) => {
 
 /* POST add lists to user */
 router.post("/:userId/lists", (req, res, next) => {
-  
+  console.log(req.bod );
   User.addList(req.params.userId, req.body).then((result) =>{
     res.statusCode = 201;
 

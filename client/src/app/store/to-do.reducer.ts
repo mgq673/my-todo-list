@@ -15,7 +15,7 @@ export const initialState: AppState = {
 export function todoReducer(state: AppState = initialState, action: AllTodoListActions) {
   switch (action.type) {
     case ActionTypes.SET_CURRENT_LIST:
-      // console.log('todoReducer SET_CURRENT_LIST ');
+      console.log('todoReducer SET_CURRENT_LIST ');
       return {...state, list: action.payload };
 
     case ActionTypes.USER_LOGIN_SUCCESS:
@@ -23,7 +23,7 @@ export function todoReducer(state: AppState = initialState, action: AllTodoListA
       return  {...state, user: action.payload };
 
     case ActionTypes.LOAD_TASKS:
-      // console.log('todoReducer LOAD_TASKS:' + JSON.stringify(action));
+      console.log('todoReducer LOAD_TASKS:' + JSON.stringify(action));
       return createLoadTasksState(state, action);
 
     default:
@@ -32,12 +32,19 @@ export function todoReducer(state: AppState = initialState, action: AllTodoListA
 }
 
 function createLoadTasksState(state: AppState, action: AllTodoListActions) {
+
   const list = state.list;
-  const user = state.user.Lists.filter(l => l.id === list.id)[0].counter = action.payload.tasks.length;
+  const user = state.user;
 
-
-  const userTasks = {...list, tasks: action.payload.tasks , counter: action.payload.tasks.length, user: user };
-  const newState =  {...state, list: userTasks, counter: action.payload.tasks.length };
+  const userList = user.Lists.filter(l => l.id === list.id)[0];
+  const newList = {...list, tasks: action.payload.tasks , counter: action.payload.tasks.length };
+  let li = user.Lists.indexOf(userList);
+const newUser = {...user };
+newUser.Lists[li] = newList;
+const counters = newUser.Lists.map( l=> l.counter )
+const sum = counters.reduce((sum,el)=> sum+=el);
+console.log("sum:"+sum);
+  const newState = {...state, list: newList, newUser, counter: sum }
 
   return newState;
 }

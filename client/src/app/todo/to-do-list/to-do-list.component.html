@@ -2,6 +2,9 @@
 
 <h4 class="mat-h4">
    My ToDo lists:
+   <mat-chip-list class="inline-block ">
+    <mat-chip >{{counter }}</mat-chip>
+</mat-chip-list>
    <button mat-icon-button class="card-button" (click)="toggleAdd()" *ngIf="!addNewFlag">
     <mat-icon>add</mat-icon>
   </button>

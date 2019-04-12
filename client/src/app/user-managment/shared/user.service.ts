@@ -47,7 +47,7 @@ export class UserService {
   private buildUserData(response) {
     const lists = response.result.lists
       .map((list) =>
-        new List({ id: list._id, title: list.title, userId: list.userId, counter: list.counter }))
+        new List({ id: list._id, title: list.title, tasks: list.tasks,  counter: list.tasks.length }))
     return new User
       ({
         id: response.result._id,
